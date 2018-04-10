@@ -37,6 +37,8 @@ describe('exercises (all the data passed to functions comes from data.js file, u
     });
 
     describe('Given a collection of writters (in data.js), correctIncomes function should correct a typo in their incomes, so xit', () => {
+
+        // use partial or currify
         xit('should return a new array with only the incomes corrected multiplied by 1000', () => {
             expect(correctIncomes(writters)).to.deep.equal([ 93000, 44000, 98000, 13000 ]);
         });
@@ -48,6 +50,5 @@ describe('exercises (all the data passed to functions comes from data.js file, u
         xit('should return an array with numbers from 1 to 30 replacing multiples of 3 by fizz, multiples of 5 by buzz and multiples of both by fizzbuzz', () => {
             expect(functionalFizzbuzz()).to.deep.equal(result);
         });
-
     });
 });
