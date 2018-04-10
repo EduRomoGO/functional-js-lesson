@@ -50,5 +50,17 @@ describe('exercises (all the data passed to functions comes from data.js file, u
         xit('should return an array with numbers from 1 to 30 replacing multiples of 3 by fizz, multiples of 5 by buzz and multiples of both by fizzbuzz', () => {
             expect(functionalFizzbuzz()).to.deep.equal(result);
         });
+
+        it('currify and partial examples', () => {
+            const sum = (a, b, c) => a + b + c;
+            const csum = currify(sum);
+            const sum10 = partial(sum, 10);
+            const sum1and2 = partial(sum, 1, 2);
+            const sum10and20 = partial(sum10, 20);
+            
+            expect(sum1and2(3)).to.equal(6);
+            expect(sum10and20(2)).to.equal(32);
+            expect(csum(10)(20)(2)).to.equal(32);
+        });
     });
 });
