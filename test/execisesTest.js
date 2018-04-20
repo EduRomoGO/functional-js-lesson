@@ -65,17 +65,17 @@ describe('exercises (all the data passed to functions comes from data.js file, u
                 Sara: { spinner: {normal: 60 }, rubikCube: {normal: 180 } },
             };
 
-            const getItemPrice = (item, units) => item.basePrice * units;
+            const getItemPrice = (item, client, units) => item.basePrice * units * (1 - client.clientDiscount/100);
 
-            const getItemsPrices = (client, units) => {
-                items.reduce((itemsPrices, item) => Object.assign({}, itemsPrices, {[item.name]: { normal: getItemPrice(item, units)}}), {});
-            };
+            const getItemsPrices = (client, units) => 
+                items.reduce((itemsPrices, item) => Object.assign({}, itemsPrices, {[item.name]: { normal: getItemPrice(item, client, units)}}), {});
+
 
             const getPrices = (clients, items, units) => 
-                clients.reduce((clientPrices, client) => Object.assign({}, clientPrices, { [client]: getItemsPrices(client, units) }), {});
+                clients.reduce((clientPrices, client) => Object.assign({}, clientPrices, { [client.name]: getItemsPrices(client, units) }), {});
 
-                
             expect(getPrices(clients, items, 20)).to.deep.equal(clientPrices);
+            // expect(getItemsPrices('Carlos', 20)).to.deep.equal({ spinner: {normal: 80 }, rubikCube: {normal: 240 } });
         });
 
     });
