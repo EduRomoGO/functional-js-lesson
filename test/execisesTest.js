@@ -34,6 +34,16 @@ describe('exercises (all the data passed to functions comes from data.js file, u
             expect(sortList(books)).to.deep.equal(bookPrices);
         });
 
+        it('return an array with odd numbers multiplied by 10', () => {
+            const numbers = [32, 59, 72, 75, 89];
+            const numbersTransformed = [32, 590, 72, 750, 890];
+    
+            const isOdd = n => n % 2 !== 0;
+            const transform = numbers => numbers.map(n => isOdd(n) ? n * 10 : n);
+
+            expect(transform(numbers)).to.deep.equal(numbersTransformed);
+        });
+
     });
 
     describe('Given a collection of writters (in data.js), correctIncomes function should correct a typo in their incomes, so xit', () => {
@@ -51,7 +61,7 @@ describe('exercises (all the data passed to functions comes from data.js file, u
             expect(functionalFizzbuzz()).to.deep.equal(result);
         });
 
-        it('currify and partial examples', () => {
+        xit('currify and partial examples', () => {
             const sum = (a, b, c) => a + b + c;
             const csum = currify(sum);
             const sum10 = partial(sum, 10);
