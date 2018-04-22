@@ -34,53 +34,9 @@ describe('exercises (all the data passed to functions comes from data.js file, u
             expect(sortList(books)).to.deep.equal(bookPrices);
         });
 
-        xit('return an array with odd numbers multiplied by 10', () => {
-            const numbers = [32, 59, 72, 75, 89];
-            const numbersTransformed = [32, 590, 72, 750, 890];
-    
-            const isOdd = n => n % 2 !== 0;
-            // const transform = numbers => numbers.map(n => isOdd(n) ? n * 10 : n);
-            // const multByTenWhen = n => cond => cond ? n * 10 : n;
-            // console.log(multByTenWhen(numbers[0])(true));    
-            // console.log('-====================');
-            // const transform = numbers => numbers.map(n => compose(multByTenWhen(n), isOdd)(n));
-
-            const multByTenWhen = cond => n => cond ? n * 10 : n;
-            const transform = numbers => numbers.map(n => multByTenWhen(isOdd(n))(n));
-
-            expect(transform(numbers)).to.deep.equal(numbersTransformed);
-        });
-
-        it('write a function that calculate the prices of the ', () => {
-            const clients = [
-                {name: 'Carlos', clientDiscount: 20, },
-                {name: 'Sara', clientDiscount: 40, },
-            ];
-            const items = [
-                { name: 'spinner', basePrice: 5, volume: 1000, volumeDiscount: 50 },
-                { name: 'rubikCube', basePrice: 15, volume: 1000, volumeDiscount: 25 }
-            ];
-            const clientPrices = {
-                Carlos: { spinner: {normal: 80 }, rubikCube: {normal: 240 } },
-                Sara: { spinner: {normal: 60 }, rubikCube: {normal: 180 } },
-            };
-
-            const getItemPrice = (item, client, units) => item.basePrice * units * (1 - client.clientDiscount/100);
-
-            const getItemsPrices = (client, units) => 
-                items.reduce((itemsPrices, item) => Object.assign({}, itemsPrices, {[item.name]: { normal: getItemPrice(item, client, units)}}), {});
-
-
-            const getPrices = (clients, items, units) => 
-                clients.reduce((clientPrices, client) => Object.assign({}, clientPrices, { [client.name]: getItemsPrices(client, units) }), {});
-
-            expect(getPrices(clients, items, 20)).to.deep.equal(clientPrices);
-            // expect(getItemsPrices('Carlos', 20)).to.deep.equal({ spinner: {normal: 80 }, rubikCube: {normal: 240 } });
-        });
-
     });
 
-    describe('Given a collection of writters (in data.js), correctIncomes function should correct a typo in their incomes, so xit', () => {
+    describe('Given a collection of writters (in data.js), correctIncomes function should correct a typo in their incomes, so it', () => {
 
         // use partial or currify
         xit('should return a new array with only the incomes corrected multiplied by 1000', () => {
