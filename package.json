@@ -4,8 +4,7 @@
   "description": "Some functional js work",
   "main": "classes.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test/execisesTest.js -w",
-    "test-windows": "node ./node_modules/mocha/bin/mocha test/execisesTest.js -w"
+    "test": "node ./node_modules/mocha/bin/mocha test/execisesTest.js -w"
   },
   "author": "@EduRomoGO",
   "license": "ISC",
