@@ -1,4 +1,4 @@
-Functional introduction to javascript
+# Functional introduction to javascript
 
-`npm i`
-`npm test` or `npm run test`
+Run `npm i`  
+Run `npm test` or `npm run test`
